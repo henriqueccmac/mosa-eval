@@ -1,0 +1,145 @@
+COMMAND ["python", "-B", "-c", "from mosa.cli import main; main()", "train", "--config", "build/mofa/samples_60/config.yaml"]
+[INFO] Loading MuData from build/mofa/samples_60/data.h5mu
+[INFO] Loaded 60 samples — gexp: 40, meth: 30 (0.02s)
+[INFO] Seed set to 42
+
+        #########################################################
+        ###           __  __  ____  ______                    ### 
+        ###          |  \/  |/ __ \|  ____/\    _             ### 
+        ###          | \  / | |  | | |__ /  \ _| |_           ### 
+        ###          | |\/| | |  | |  __/ /\ \_   _|          ###
+        ###          | |  | | |__| | | / ____ \|_|            ###
+        ###          |_|  |_|\____/|_|/_/    \_\              ###
+        ###                                                   ### 
+        ######################################################### 
+         
+
+
+Successfully loaded view='gexp' group='Cell_Line' with N=30 samples and D=40 features...
+Successfully loaded view='gexp' group='Organoid' with N=20 samples and D=40 features...
+Successfully loaded view='gexp' group='Tumor' with N=10 samples and D=40 features...
+Successfully loaded view='meth' group='Cell_Line' with N=30 samples and D=30 features...
+Successfully loaded view='meth' group='Organoid' with N=20 samples and D=30 features...
+Successfully loaded view='meth' group='Tumor' with N=10 samples and D=30 features...
+
+
+Model options:
+- Automatic Relevance Determination prior on the factors: True
+- Automatic Relevance Determination prior on the weights: True
+- Spike-and-slab prior on the factors: False
+- Spike-and-slab prior on the weights: True
+Likelihoods:
+- View 0 (gexp): gaussian
+- View 1 (meth): gaussian
+
+
+
+Warning: some group(s) have less than 15 samples, MOFA won't be able to learn meaningful factors for these group(s)...
+
+
+
+######################################
+## Training the model with seed 42 ##
+######################################
+
+
+ELBO before training: -15500.92 
+
+Iteration 1: time=0.00, ELBO=-7355.46, deltaELBO=8145.458 (52.54821681%), Factors=3
+Iteration 2: time=0.00, Factors=3
+Iteration 3: time=0.00, Factors=3
+Iteration 4: time=0.00, Factors=3
+Iteration 5: time=0.00, Factors=3
+Iteration 6: time=0.00, ELBO=-7325.92, deltaELBO=29.545 (0.19060209%), Factors=3
+Iteration 7: time=0.00, Factors=3
+Iteration 8: time=0.00, Factors=3
+Iteration 9: time=0.00, Factors=3
+Iteration 10: time=0.00, Factors=3
+Iteration 11: time=0.00, ELBO=-7261.01, deltaELBO=64.910 (0.41874727%), Factors=3
+Iteration 12: time=0.00, Factors=3
+Iteration 13: time=0.00, Factors=3
+Iteration 14: time=0.00, Factors=3
+Iteration 15: time=0.00, Factors=3
+Iteration 16: time=0.00, ELBO=-7233.18, deltaELBO=27.830 (0.17953701%), Factors=3
+Iteration 17: time=0.00, Factors=3
+Iteration 18: time=0.00, Factors=3
+Iteration 19: time=0.00, Factors=3
+Iteration 20: time=0.00, Factors=3
+Iteration 21: time=0.00, ELBO=-7227.02, deltaELBO=6.161 (0.03974406%), Factors=3
+Iteration 22: time=0.00, Factors=3
+Iteration 23: time=0.00, Factors=3
+Iteration 24: time=0.00, Factors=3
+Iteration 25: time=0.00, Factors=3
+Iteration 26: time=0.00, ELBO=-7224.63, deltaELBO=2.392 (0.01542836%), Factors=3
+Iteration 27: time=0.00, Factors=3
+Iteration 28: time=0.00, Factors=3
+Iteration 29: time=0.00, Factors=3
+Iteration 30: time=0.00, Factors=3
+Iteration 31: time=0.00, ELBO=-7223.38, deltaELBO=1.243 (0.00802135%), Factors=3
+Iteration 32: time=0.00, Factors=3
+Iteration 33: time=0.00, Factors=3
+Iteration 34: time=0.00, Factors=3
+Iteration 35: time=0.00, Factors=3
+Iteration 36: time=0.00, ELBO=-7222.63, deltaELBO=0.756 (0.00487891%), Factors=3
+Iteration 37: time=0.00, Factors=3
+Iteration 38: time=0.00, Factors=3
+Iteration 39: time=0.00, Factors=3
+Iteration 40: time=0.00, Factors=3
+Iteration 41: time=0.00, ELBO=-7222.12, deltaELBO=0.507 (0.00326925%), Factors=3
+Iteration 42: time=0.00, Factors=3
+Iteration 43: time=0.00, Factors=3
+Iteration 44: time=0.00, Factors=3
+Iteration 45: time=0.00, Factors=3
+Iteration 46: time=0.00, ELBO=-7221.76, deltaELBO=0.363 (0.00233898%), Factors=3
+Iteration 47: time=0.00, Factors=3
+Iteration 48: time=0.00, Factors=3
+Iteration 49: time=0.00, Factors=3
+Iteration 50: time=0.00, Factors=3
+Iteration 51: time=0.00, ELBO=-7166.45, deltaELBO=55.313 (0.35683628%), Factors=3
+Iteration 52: time=0.00, Factors=3
+Iteration 53: time=0.00, Factors=3
+Iteration 54: time=0.00, Factors=3
+Iteration 55: time=0.00, Factors=3
+Iteration 56: time=0.00, ELBO=-7166.21, deltaELBO=0.232 (0.00149537%), Factors=3
+Iteration 57: time=0.00, Factors=3
+Iteration 58: time=0.00, Factors=3
+Iteration 59: time=0.00, Factors=3
+Iteration 60: time=0.00, Factors=3
+Iteration 61: time=0.00, ELBO=-7166.04, deltaELBO=0.174 (0.00112502%), Factors=3
+Iteration 62: time=0.00, Factors=3
+Iteration 63: time=0.00, Factors=3
+Iteration 64: time=0.00, Factors=3
+Iteration 65: time=0.00, Factors=3
+Iteration 66: time=0.00, ELBO=-7165.90, deltaELBO=0.136 (0.00087799%), Factors=3
+Iteration 67: time=0.00, Factors=3
+Iteration 68: time=0.00, Factors=3
+Iteration 69: time=0.00, Factors=3
+Iteration 70: time=0.00, Factors=3
+Iteration 71: time=0.00, ELBO=-7165.79, deltaELBO=0.110 (0.00070645%), Factors=3
+Iteration 72: time=0.00, Factors=3
+Iteration 73: time=0.00, Factors=3
+Iteration 74: time=0.00, Factors=3
+Iteration 75: time=0.00, Factors=3
+Iteration 76: time=0.00, ELBO=-7165.70, deltaELBO=0.090 (0.00058315%), Factors=3
+Iteration 77: time=0.00, Factors=3
+Iteration 78: time=0.00, Factors=3
+Iteration 79: time=0.00, Factors=3
+Iteration 80: time=0.00, Factors=3
+Iteration 81: time=0.00, ELBO=-7165.63, deltaELBO=0.076 (0.00049181%), Factors=3
+Iteration 82: time=0.00, Factors=3
+Iteration 83: time=0.00, Factors=3
+Iteration 84: time=0.00, Factors=3
+Iteration 85: time=0.00, Factors=3
+[INFO] Saving outputs to build/mofa/samples_60/outputs
+Iteration 86: time=0.00, ELBO=-7165.56, deltaELBO=0.065 (0.00042229%), Factors=3
+
+Converged!
+
+
+
+#######################
+## Training finished ##
+#######################
+
+
+Saving model in build/mofa/samples_60/outputs/mofa_model.hdf5...

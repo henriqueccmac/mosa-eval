@@ -1,0 +1,21 @@
+COMMAND ["python", "-B", "-c", "from mosa.cli import main; main()", "convert", "--conditionals", "./data/conditionals_pdx.csv", "--view", "gexp:./data/gexp_pdx.csv", "--view", "meth:./data/meth_pdx.csv", "--output", "build/scenarios/D4/store.h5mu"]
+[INFO] Converting dataset to MuData format
+[INFO] Saving MuData (h5mu) to build/scenarios/D4/store.h5mu
+[INFO] Conversion complete: 68 samples, 2 modalities
+
+Conversion report
+  Samples
+    in metadata:                      68
+    in at least one view:             68
+    matched on both:                  68
+    dropped, no metadata:              0
+    dropped, no view data:             0
+    final:                            68
+  Views
+    gexp                 40 features      68 / 68 samples present
+    meth                 30 features      58 / 68 samples present
+  Samples by view count
+    1 view:                           10
+    2 views:                          58
+
+MuData file saved to build/scenarios/D4/store.h5mu

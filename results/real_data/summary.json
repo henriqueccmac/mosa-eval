@@ -1,0 +1,12 @@
+{
+  "samples": 14132,
+  "views": 3,
+  "complete_samples": 574,
+  "epochs": 10,
+  "checkpoint": {
+    "name": "epoch=9-step=560.ckpt",
+    "bytes": 215615503,
+    "sha256": "ea83ded9422201d510d28514f0e81dccca4e448d48d1f40c78a15e27c71b470d"
+  },
+  "verification": "Training metrics and checkpoint presence; no checkpoint reload or exported-array checks on this dataset."
+}

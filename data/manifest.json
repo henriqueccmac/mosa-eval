@@ -1,0 +1,17 @@
+{
+  "seed": 20260924,
+  "bit_generator": "PCG64",
+  "distribution": "independent standard normal N(0,1)",
+  "sha256": {
+    "conditionals.csv": "da366ff361e35d573d0b2bf71ae21a8b2022726118d07904f2963765484771e4",
+    "conditionals_p2.csv": "18391b4612007d5fab5932c117d450e8012b76fc34edc8c84ef7c77d7786af13",
+    "conditionals_pdx.csv": "a202361c78c2c8d191e22d30e2dabef7805056325d2264789f96d9a84526d908",
+    "crispr.csv": "d49740dccb752a5046d7b3560addd00af4d90a723ce78c0872fbcd3c1d0502b0",
+    "gexp.csv": "39f0550bcd21865abc4ef59765c29e8555e2b557ae0e2d926b04e236fa9bbe80",
+    "gexp_p2.csv": "9f4e9c89bd3eceba199b380f63447408546bfac87098cde1aa414c77566a7997",
+    "gexp_pdx.csv": "9c78256f1fc5c1fe8be745a33a68e19b579eda94417a0fcd95540976842f3daf",
+    "id_map.csv": "fe085f1e2f421a131c84c531666269808db7420d6bb9538bae6f6da59670713a",
+    "meth.csv": "247cb3abf9c15de257e81666d4f616c2789cf29cbf6ab564831dca3cb3c2f9c3",
+    "meth_pdx.csv": "2ea947f2eb389a0e89e25905103cf7839016112984f40dc1d6a48dbdf5f0718a"
+  }
+}

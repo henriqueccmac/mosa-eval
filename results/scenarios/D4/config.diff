@@ -1,0 +1,10 @@
+--- a
++++ b
+@@ -10,6 +10,7 @@
+   accelerator: cpu
+   devices: 1
+   random_seed: 42
++  preprocessing_mode: center
+   views:
+     gexp:
+       hidden_layer_dims:

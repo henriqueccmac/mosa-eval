@@ -1,0 +1,61 @@
+COMMAND ["python", "-B", "-c", "from mosa.cli import main; main()", "train", "--config", "build/alternatives/preprocessing_none/config.yaml"]
+[INFO] Loading MuData from build/alternatives/continuous.h5mu
+[INFO] Loaded 60 samples — gexp: 40, meth: 30, crispr: 20 (0.11s)
+[INFO] Seed set to 42
+[INFO] Setup complete: 48 train, 12 val (0.00s)
+[INFO] GPU available: False, used: False
+[INFO] TPU available: False, using: 0 TPU cores
+[INFO] 💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+[INFO] 
+  | Name         | Type              | Params | Mode  | FLOPs
+-------------------------------------------------------------------
+0 | encoders     | ModuleDict        | 2.4 K  | train | 0    
+1 | decoders     | ModuleDict        | 2.6 K  | train | 0    
+2 | latent_space | ConcatLatentSpace | 784    | train | 0    
+-------------------------------------------------------------------
+5.8 K     Trainable params
+0         Non-trainable params
+5.8 K     Total params
+0.023     Total estimated model params size (MB)
+68        Modules in train mode
+0         Modules in eval mode
+0         Total Flops
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]<environment>/lib/python3.13/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 108.89it/s]
+                                                                            <environment>/lib/python3.13/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+
+
+Training: |          | 0/? [00:00<?, ?it/s]
+Training: |          | 0/? [00:00<?, ?it/s]
+Epoch 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Epoch 0:  33%|███▎      | 1/3 [00:00<00:00, 170.39it/s]
+Epoch 0:  33%|███▎      | 1/3 [00:00<00:00, 161.11it/s, v_num=0]
+Epoch 0:  67%|██████▋   | 2/3 [00:00<00:00, 188.08it/s, v_num=0]
+Epoch 0:  67%|██████▋   | 2/3 [00:00<00:00, 182.35it/s, v_num=0]
+Epoch 0: 100%|██████████| 3/3 [00:00<00:00, 198.49it/s, v_num=0]
+Epoch 0: 100%|██████████| 3/3 [00:00<00:00, 194.47it/s, v_num=0]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 614.28it/s][A
+
+                                                                       [A
+Epoch 0: 100%|██████████| 3/3 [00:00<00:00, 156.09it/s, v_num=0, val/loss=2.950]
+Epoch 0: 100%|██████████| 3/3 [00:00<00:00, 151.65it/s, v_num=0, val/loss=2.950, train/loss=3.680][INFO] Saved checkpoint mosa-epoch=000-val_loss=2.9534.ckpt (epoch 0, 0.0s)
+[INFO] Saved checkpoint last.ckpt (epoch 0, 0.0s)
+[INFO] `Trainer.fit` stopped: `max_epochs=1` reached.
+
+Epoch 0: 100%|██████████| 3/3 [00:00<00:00, 89.97it/s, v_num=0, val/loss=2.950, train/loss=3.680] [INFO] Saving outputs to build/alternatives/preprocessing_none/outputs
+[INFO] Predicting on train split
+[INFO] Predicting on val split
+[INFO] Predicting on full split
+[INFO] Outputs saved in 0.1s
+

@@ -1,0 +1,45 @@
+COMMAND ["python", "-B", "-m", "pytest", "-q", "-p", "measurement_plugin", "-p", "no:cacheprovider", "--basetemp", "build/tests/scenarios_A3/tmp", "tests"]
+........................................................................ [ 17%]
+........................................................................ [ 34%]
+........................................................................ [ 51%]
+........................................................................ [ 69%]
+........................................................................ [ 86%]
+........................................................                 [100%]
+=============================== warnings summary ===============================
+tests/test_api.py::test_vae_fit
+  <environment>/lib/python3.13/site-packages/pytorch_lightning/trainer/connectors/logger_connector/logger_connector.py:76: Starting from v1.9.0, `tensorboardX` has been removed as a dependency of the `pytorch_lightning` package, due to potential conflicts with other packages in the ML ecosystem. For this reason, `logger=True` will use `CSVLogger` as the default logger, unless the `tensorboard` or `tensorboardX` packages are found. Please `pip install lightning[extra]` or one of them to enable TensorBoard support by default
+
+tests/test_api.py: 20 warnings
+tests/test_checkpoint.py: 9 warnings
+tests/test_evaluation.py: 14 warnings
+tests/test_optimize.py: 12 warnings
+tests/test_training.py: 7 warnings
+  <environment>/lib/python3.13/site-packages/pytorch_lightning/utilities/_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+
+tests/test_api.py: 5 warnings
+tests/test_checkpoint.py: 9 warnings
+tests/test_cli_commands.py: 30 warnings
+tests/test_evaluation.py: 14 warnings
+tests/test_optimize.py: 12 warnings
+tests/test_training.py: 1 warning
+tests/test_workflows.py: 7 warnings
+  <environment>/lib/python3.13/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+
+tests/test_api.py: 20 warnings
+tests/test_checkpoint.py: 9 warnings
+tests/test_cli_commands.py: 30 warnings
+tests/test_convert_train_seam.py: 4 warnings
+tests/test_evaluation.py: 14 warnings
+tests/test_optimize.py: 12 warnings
+tests/test_training.py: 7 warnings
+tests/test_workflows.py: 11 warnings
+  <environment>/lib/python3.13/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+
+tests/test_checkpoint.py::test_vae_resume_produces_valid_output
+  <environment>/lib/python3.13/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:881: Checkpoint directory build/tests/scenarios_A3/tmp/test_vae_resume_produces_valid0/checkpoints exists and is not empty.
+
+tests/test_cli_commands.py::test_train_resume_continues_from_a_checkpoint
+  <environment>/lib/python3.13/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:566: The dirpath has changed from 'build/tests/scenarios_A3/tmp/test_train_resume_continues_fr0/run/checkpoints' to 'build/tests/scenarios_A3/tmp/test_train_resume_continues_fr0/resumed/checkpoints', therefore `best_model_score`, `kth_best_model_path`, `kth_value`, `last_model_path` and `best_k_models` won't be reloaded. Only `best_model_path` will be reloaded.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+416 passed, 250 warnings in 31.08s

@@ -1,0 +1,65 @@
+--- a/src/mosa/models/mosa/config.py
++++ b/src/mosa/models/mosa/config.py
+@@ -71,6 +71,7 @@
+     kl_weight_final: float = 1.5625e-4
+     kl_warmup_epochs: int = 0
+     use_kl_scheduler: bool = False
++    latent_l2_weight: float = 0.0
+     contrastive_weight: float = 0.0
+     adv_weight: float = 0.0
+     adv_focal_gamma: float = (
+@@ -133,6 +134,7 @@
+         for name in (
+             "kl_weight",
+             "kl_weight_final",
++            "latent_l2_weight",
+             "contrastive_weight",
+             "adv_weight",
+             "learning_rate",
+@@ -146,6 +148,9 @@
+             if not isinstance(val, float):
+                 object.__setattr__(self, name, float(val))
+ 
++        if self.latent_l2_weight < 0:
++            raise ConfigError("latent_l2_weight must be nonnegative")
++
+         # Structural validation
+         if self.fusion_method not in _VALID_FUSION_METHODS:
+             raise ConfigError(
+--- a/src/mosa/models/mosa/vae/losses.py
++++ b/src/mosa/models/mosa/vae/losses.py
+@@ -149,3 +149,8 @@
+         pt = torch.exp(-ce)
+         ce = ((1 - pt) ** focal_gamma) * ce
+     return ce.mean()
++
++
++def latent_l2_loss(mu: Tensor) -> Tensor:
++    """Penalize posterior-mean magnitude, averaged over samples and dimensions."""
++    return mu.square().mean()
+--- a/src/mosa/models/mosa/vae/vae_module.py
++++ b/src/mosa/models/mosa/vae/vae_module.py
+@@ -16,6 +16,7 @@
+ from mosa.models.mosa.vae.latent import BaseLatentSpace
+ from mosa.models.mosa.vae.losses import (
+     adversarial_loss,
++    latent_l2_loss,
+     contrastive_loss,
+     kl_divergence,
+     reconstruction_loss,
+@@ -301,6 +302,7 @@
+             losses["recon"]
+             + current_kl_weight * losses["kl"]
+             + self.config.contrastive_weight * losses["contrastive"]
++            + self.config.latent_l2_weight * latent_l2_loss(out["mu"])
+             - self.config.adv_weight * adv_loss_val
+         )
+ 
+@@ -359,6 +361,7 @@
+             losses["recon"]
+             + current_kl_weight * losses["kl"]
+             + self.config.contrastive_weight * losses["contrastive"]
++            + self.config.latent_l2_weight * latent_l2_loss(out["mu"])
+         )
+ 
+         bs = batch["conditionals"].shape[0]

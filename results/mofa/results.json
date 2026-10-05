@@ -1,0 +1,188 @@
+{
+  "source_commit": "12f4651b50a4da6937255afe830452a8706d8f23",
+  "cases": {
+    "60": {
+      "convert": {
+        "exit_code": 0,
+        "log": "mofa/samples_60/convert.log"
+      },
+      "train": {
+        "exit_code": 0,
+        "log": "mofa/samples_60/train.log"
+      },
+      "transform": {
+        "exit_code": 0,
+        "log": "mofa/samples_60/transform.log"
+      },
+      "latent_roundtrip": {
+        "shape": [
+          60,
+          3
+        ],
+        "finite": true,
+        "sample_order": true,
+        "equal": true
+      },
+      "reconstructions": {
+        "gexp": {
+          "shape": [
+            60,
+            40
+          ],
+          "roundtrip_equal": true,
+          "names_and_order": true,
+          "nonfinite": 0,
+          "nonfinite_observed": 0,
+          "affected_samples": [],
+          "nonfinite_intercepts": {
+            "Cell_Line": 0,
+            "Organoid": 0,
+            "Tumor": 0
+          }
+        },
+        "meth": {
+          "shape": [
+            60,
+            30
+          ],
+          "roundtrip_equal": true,
+          "names_and_order": true,
+          "nonfinite": 300,
+          "nonfinite_observed": 0,
+          "affected_samples": [
+            "S050",
+            "S051",
+            "S052",
+            "S053",
+            "S054",
+            "S055",
+            "S056",
+            "S057",
+            "S058",
+            "S059"
+          ],
+          "nonfinite_intercepts": {
+            "Cell_Line": 0,
+            "Organoid": 0,
+            "Tumor": 30
+          }
+        }
+      },
+      "plot": {
+        "exit_code": 1,
+        "log": "mofa/samples_60/plot.log",
+        "files": [
+          "outputs/plots/umap_recon_gexp.png",
+          "outputs/plots/umap_z.png"
+        ],
+        "expected_present": false
+      },
+      "cross_validation": {
+        "exit_code": 1,
+        "log": "mofa/samples_60/cross_validation.log"
+      }
+    },
+    "50": {
+      "convert": {
+        "exit_code": 0,
+        "log": "mofa/samples_50/convert.log"
+      },
+      "train": {
+        "exit_code": 0,
+        "log": "mofa/samples_50/train.log"
+      },
+      "transform": {
+        "exit_code": 0,
+        "log": "mofa/samples_50/transform.log"
+      },
+      "latent_roundtrip": {
+        "shape": [
+          50,
+          3
+        ],
+        "finite": true,
+        "sample_order": true,
+        "equal": true
+      },
+      "reconstructions": {
+        "gexp": {
+          "shape": [
+            50,
+            40
+          ],
+          "roundtrip_equal": true,
+          "names_and_order": true,
+          "nonfinite": 0,
+          "nonfinite_observed": 0,
+          "affected_samples": [],
+          "nonfinite_intercepts": {
+            "Cell_Line": 0,
+            "Organoid": 0
+          }
+        },
+        "meth": {
+          "shape": [
+            50,
+            30
+          ],
+          "roundtrip_equal": true,
+          "names_and_order": true,
+          "nonfinite": 0,
+          "nonfinite_observed": 0,
+          "affected_samples": [],
+          "nonfinite_intercepts": {
+            "Cell_Line": 0,
+            "Organoid": 0
+          }
+        }
+      },
+      "plot": {
+        "exit_code": 0,
+        "log": "mofa/samples_50/plot.log",
+        "files": [
+          "outputs/plots/input_recon_feature_gexp_recon.png",
+          "outputs/plots/input_recon_feature_meth_recon.png",
+          "outputs/plots/input_recon_sample_gexp_recon.png",
+          "outputs/plots/input_recon_sample_meth_recon.png",
+          "outputs/plots/umap_recon_gexp.png",
+          "outputs/plots/umap_recon_meth.png",
+          "outputs/plots/umap_z.png"
+        ],
+        "expected_present": true
+      },
+      "cross_validation": {
+        "exit_code": 0,
+        "log": "mofa/samples_50/cross_validation.log",
+        "artifacts": {
+          "gexp": {
+            "shape": [
+              50,
+              40
+            ],
+            "finite": true,
+            "names_and_order": true
+          },
+          "meth": {
+            "shape": [
+              50,
+              30
+            ],
+            "finite": true,
+            "names_and_order": true
+          }
+        },
+        "history_written": false
+      },
+      "search": {
+        "exit_code": 0,
+        "log": "mofa/samples_50/search.log",
+        "persistent_outputs": []
+      }
+    }
+  },
+  "input_hashes": {
+    "conditionals.csv": "da366ff361e35d573d0b2bf71ae21a8b2022726118d07904f2963765484771e4",
+    "gexp.csv": "39f0550bcd21865abc4ef59765c29e8555e2b557ae0e2d926b04e236fa9bbe80",
+    "meth.csv": "247cb3abf9c15de257e81666d4f616c2789cf29cbf6ab564831dca3cb3c2f9c3"
+  }
+}

@@ -1,0 +1,10 @@
+--- a
++++ b
+@@ -11,6 +11,7 @@
+   accelerator: cpu
+   devices: 1
+   random_seed: 42
++  latent_l2_weight: 0.01
+   views:
+     gexp:
+       hidden_layer_dims:

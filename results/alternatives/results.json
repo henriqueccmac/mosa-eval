@@ -1,0 +1,263 @@
+{
+  "source_commit": "12f4651b50a4da6937255afe830452a8706d8f23",
+  "cases": [
+    {
+      "case": "view_type_continuous",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "view_type_mixed",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "view_type_discrete",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "use_tissue_False",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 4,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "use_tissue_True",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "use_mutations_False",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 6,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "use_mutations_True",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "adv_weight_0.0",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "adv_weight_0.01",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": true,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "contrastive_weight_0.0",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "contrastive_weight_0.01",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "kl_warmup_False",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "kl_warmup_True",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "reduction_mean",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "reduction_macro",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "fusion_concat",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "fusion_poe",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "feature_dropout_0.0",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "feature_dropout_0.2",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "view_dropout_0.0",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "view_dropout_0.1",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "both_auxiliary_losses",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": true,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "preprocessing_standardize",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "preprocessing_center",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "preprocessing_none",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "conditional_dim": 7,
+      "discriminator_present": false,
+      "saved_settings_verified": true,
+      "outputs_verified": true
+    },
+    {
+      "case": "integration_mofa",
+      "passed": true,
+      "validation_warnings": [],
+      "training_exit": 0,
+      "loaded_model": "MOFAModel",
+      "outputs_verified": true
+    }
+  ]
+}

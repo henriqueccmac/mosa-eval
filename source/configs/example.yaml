@@ -1,0 +1,123 @@
+# MOSA example configuration
+# Copy this file and adjust data.path and views to match your dataset.
+#
+# Docs:
+#   Getting started    docs/getting-started.md
+#   Configuration ref  docs/configuration.md
+#   Adding a dataset   docs/workflows/add-dataset.md
+#   Architecture       docs/architecture.md
+#
+# To convert CSVs to MuData:
+#   mosa convert --conditionals data/conditionals.csv \
+#                --view transcriptomics:data/transcriptomics.csv \
+#                --output data/dataset.h5mu
+
+
+# ---------------------------------------------------------------------------
+# Data: shared definition consumed by every model.
+# ---------------------------------------------------------------------------
+
+data:
+  path: data/dataset.h5mu
+  mask_layer_name: mask
+
+  # Modality keys in the MuData file. List discrete (count/integer) views
+  # under discrete_views to skip z-score normalisation.
+  views:
+    - transcriptomics
+    # - methylation
+  discrete_views: []
+
+  # Conditionals are built from .obs automatically: model_type (always),
+  # tissue (if use_tissue), mutation_* columns (if use_mutations).
+  use_tissue: false
+  use_mutations: false
+
+
+# ---------------------------------------------------------------------------
+# Model: type discriminator + all model-specific knobs.
+# ---------------------------------------------------------------------------
+
+model:
+  type: mosa_vae
+
+  # Shared orchestration (ModelConfig base contract)
+  output_dir: outputs
+  random_seed: 42
+
+  # Architecture
+  joint_latent_dim: 64
+  fusion_method: concat   # concat or poe
+  shared_hidden_layer_dims: []   # PoE only; hidden dims before the shared projection head
+  poe_use_shared_head: true      # PoE only; true = shared head, false = direct mu/logvar from each encoder
+  view_dropout_prob: 0.2
+
+  # Per-view encoder/decoder architecture. Keys must match data.views.
+  # hidden_layer_dims: encoder/decoder MLP sizes; last value sets the per-view embedding dim.
+  # loss_type: "mean" for standard MSE, "macro" for model_type-balanced MSE.
+  views:
+    transcriptomics:
+      hidden_layer_dims: [512, 256]
+      loss_type: mean
+      dropout_p: 0.1
+    # methylation:
+    #   hidden_layer_dims: [512, 256]
+    #   loss_type: mean
+    #   dropout_p: 0.1
+
+  # Data processing: standardize (z-score) | center (mean by group)| none
+  preprocessing_mode: none
+
+  # KL term: optional linear warmup from kl_weight to kl_weight_final over kl_warmup_epochs.
+  kl_weight: 0.01
+  kl_weight_final: 0.01
+  kl_warmup_epochs: 0
+  use_kl_scheduler: false
+
+  # Contrastive term: tissue-supervised cosine contrastive loss; 0 disables.
+  contrastive_weight: 0.0
+
+  # Adversarial term: adv_weight > 0 enables the discriminator and uses adv_learning_rate.
+  adv_weight: 0.0
+  adv_focal_gamma: 1.5
+  use_adv_class_weights: true    # use class weights in adversarial cross-entropy loss
+
+  # Optimiser
+  adv_learning_rate: 0.001
+  learning_rate: 0.001
+  lr_scheduler: none      # none or step
+  lr_step_size: 100       # epochs between StepLR decay steps
+  lr_gamma: 0.5           # multiplicative decay factor
+
+  # Training loop
+  num_epochs: 200
+  batch_size: 64
+  weighted_random_sampler: false   # use WeightedRandomSampler to balance model_type in training
+  scaler_sample_frac: 1.0       # fraction of training data used to fit StandardScaler
+
+  # Corrected inference: forces all samples to target_batch if inference=true.
+  inference: false
+  target_batch: ""        # model_type value; empty uses the first category
+
+  # Lightning trainer settings
+  accelerator: auto       # auto, cpu, gpu, mps
+  devices: auto           # auto or integer
+  precision: "32"         # 32, 16-mixed, bf16-mixed
+  gradient_clip_val: 0.0
+  accumulate_grad_batches: 1
+  early_stopping_patience: 20
+  checkpoint_top_k: 3
+  num_workers: 0          # set to 4-8 for large datasets
+
+
+# ---------------------------------------------------------------------------
+# Evaluation: how data is held out for assessment. Optional; these are the
+# defaults. Used by `mosa train` (test_size) and by `mosa cross-validate` /
+# `mosa optimize` (the fold settings).
+# ---------------------------------------------------------------------------
+
+evaluation:
+  test_size: 0.1          # validation fraction; 0 disables validation and early stopping
+  n_folds: 5              # cross-validation folds
+  strategy: stratified    # stratified balances model_type across folds; kfold ignores it
+  shuffle: true           # false assigns folds as contiguous blocks of sample order

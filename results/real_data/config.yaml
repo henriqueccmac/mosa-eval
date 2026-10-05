@@ -1,0 +1,74 @@
+data:
+  path: data_newtest.h5mu
+  mask_layer_name: mask
+  views:
+  - gexp
+  - meth
+  - crispr
+  discrete_views: []
+  use_tissue: false
+  use_mutations: false
+model:
+  type: mosa_vae
+  output_dir: outputs/benchmark
+  random_seed: 42
+  fusion_method: poe
+  joint_latent_dim: 32
+  shared_hidden_layer_dims: []
+  poe_use_shared_head: false
+  view_dropout_prob: 0.1
+  views:
+    gexp:
+      hidden_layer_dims:
+      - 256
+      - 128
+      loss_type: mean
+      dropout_p: 0.1
+      recon_weight: 1.0
+    meth:
+      hidden_layer_dims:
+      - 256
+      - 128
+      loss_type: mean
+      dropout_p: 0.1
+      recon_weight: 1.0
+    crispr:
+      hidden_layer_dims:
+      - 256
+      - 128
+      loss_type: mean
+      dropout_p: 0.1
+      recon_weight: 1.0
+  kl_weight: 1e-5
+  use_kl_scheduler: false
+  kl_weight_final: 1e-3
+  kl_warmup_epochs: 100
+  adv_weight: 0.01
+  use_adv_class_weights: true
+  adv_focal_gamma: 1.5
+  contrastive_weight: 0.0
+  learning_rate: 1e-3
+  adv_learning_rate: 1e-3
+  lr_scheduler: step
+  lr_step_size: 100
+  lr_gamma: 0.5
+  weighted_random_sampler: false
+  batch_size: 512
+  num_epochs: 10
+  scaler_sample_frac: 1.0
+  preprocessing_mode: none
+  inference: false
+  target_batch: Tumor
+  accelerator: auto
+  devices: 1
+  precision: '32'
+  gradient_clip_val: 0.0
+  accumulate_grad_batches: 1
+  early_stopping_patience: 20
+  checkpoint_top_k: 3
+  num_workers: 0
+evaluation:
+  test_size: 0.0
+  n_folds: 5
+  strategy: stratified
+  shuffle: true

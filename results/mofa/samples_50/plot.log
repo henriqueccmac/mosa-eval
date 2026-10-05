@@ -1,0 +1,2 @@
+COMMAND ["python", "-B", "-c", "from mosa.cli import main; main()", "plot", "--config", "build/mofa/samples_50/config.yaml"]
+Plots saved to build/mofa/samples_50/outputs/plots

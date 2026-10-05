@@ -1,0 +1,64 @@
+COMMAND ["python", "-B", "-c", "from mosa.cli import main; main()", "train", "--config", "build/scenarios/D4/config.yaml"]
+[WARNING] No 'mutation_*' columns in data; mutation conditioning will be disabled.
+[INFO] Loading MuData from build/scenarios/D4/store.h5mu
+[INFO] Loaded 68 samples — gexp: 40, meth: 30 (0.02s)
+[INFO] Seed set to 42
+[INFO] Setup complete: 54 train, 14 val (0.08s)
+[INFO] GPU available: False, used: False
+[INFO] TPU available: False, using: 0 TPU cores
+[INFO] 💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+[INFO] 
+  | Name         | Type              | Params | Mode  | FLOPs
+-------------------------------------------------------------------
+0 | encoders     | ModuleDict        | 1.8 K  | train | 0    
+1 | decoders     | ModuleDict        | 1.9 K  | train | 0    
+2 | latent_space | ConcatLatentSpace | 528    | train | 0    
+-------------------------------------------------------------------
+4.2 K     Trainable params
+0         Non-trainable params
+4.2 K     Total params
+0.017     Total estimated model params size (MB)
+47        Modules in train mode
+0         Modules in eval mode
+0         Total Flops
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]<environment>/lib/python3.13/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]
+Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 121.95it/s]
+                                                                            <environment>/lib/python3.13/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=7` in the `DataLoader` to improve performance.
+
+
+Training: |          | 0/? [00:00<?, ?it/s]
+Training: |          | 0/? [00:00<?, ?it/s]
+Epoch 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Epoch 0:  25%|██▌       | 1/4 [00:00<00:00, 219.30it/s]
+Epoch 0:  25%|██▌       | 1/4 [00:00<00:00, 205.79it/s, v_num=0]
+Epoch 0:  50%|█████     | 2/4 [00:00<00:00, 243.42it/s, v_num=0]
+Epoch 0:  50%|█████     | 2/4 [00:00<00:00, 235.73it/s, v_num=0]
+Epoch 0:  75%|███████▌  | 3/4 [00:00<00:00, 256.63it/s, v_num=0]
+Epoch 0:  75%|███████▌  | 3/4 [00:00<00:00, 250.90it/s, v_num=0]
+Epoch 0: 100%|██████████| 4/4 [00:00<00:00, 266.58it/s, v_num=0]
+Epoch 0: 100%|██████████| 4/4 [00:00<00:00, 262.05it/s, v_num=0]
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validation: |          | 0/? [00:00<?, ?it/s][A
+
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 795.58it/s][A
+
+                                                                       [A
+Epoch 0: 100%|██████████| 4/4 [00:00<00:00, 218.21it/s, v_num=0, val/loss=2.300]
+Epoch 0: 100%|██████████| 4/4 [00:00<00:00, 212.80it/s, v_num=0, val/loss=2.300, train/loss=2.400][INFO] Saved checkpoint mosa-epoch=000-val_loss=2.3007.ckpt (epoch 0, 0.0s)
+[INFO] Saved checkpoint last.ckpt (epoch 0, 0.0s)
+[INFO] `Trainer.fit` stopped: `max_epochs=1` reached.
+
+Epoch 0: 100%|██████████| 4/4 [00:00<00:00, 140.72it/s, v_num=0, val/loss=2.300, train/loss=2.400][INFO] Saving outputs to build/scenarios/D4/outputs
+[INFO] Predicting on train split
+[INFO] Predicting on val split
+[INFO] Predicting on full split
+[INFO] Outputs saved in 0.1s
+

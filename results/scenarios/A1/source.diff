@@ -1,0 +1,43 @@
+--- a/src/mosa/models/mosa/config.py
++++ b/src/mosa/models/mosa/config.py
+@@ -6,7 +6,7 @@
+ from mosa.config import ModelConfig, check_unknown_keys
+ from mosa.errors import ConfigError, DataError
+ 
+-_VALID_FUSION_METHODS = ("concat", "poe")
++_VALID_FUSION_METHODS = ("concat", "poe", "mean")
+ _VALID_LOSS_TYPES = ("mean", "macro")
+ _VALID_LR_SCHEDULERS = ("none", "step")
+ _VALID_PRECISIONS = ("32", "16-mixed", "bf16-mixed")
+--- a/src/mosa/models/mosa/vae/latent.py
++++ b/src/mosa/models/mosa/vae/latent.py
+@@ -193,3 +193,29 @@
+ 
+         z = self.reparameterize(mu, logvar)
+         return mu, logvar, z
++
++
++@register_latent("mean")
++class MeanLatentSpace(BaseLatentSpace):
++    """Average projected embeddings over observed views only."""
++
++    def _build(self) -> None:
++        self.projections = nn.ModuleDict({
++            name: nn.Linear(dim, self.latent_dim)
++            for name, dim in self.view_dims.items()
++        })
++        self.fc_mu = nn.Linear(self.latent_dim, self.latent_dim)
++        self.fc_logvar = nn.Linear(self.latent_dim, self.latent_dim)
++
++    def forward(self, view_embeddings, view_order, sample_masks=None):
++        embeddings = torch.stack([
++            self.projections[name](view_embeddings[name]) for name in view_order
++        ])
++        weights = torch.ones_like(embeddings[:, :, :1])
++        if sample_masks is not None:
++            weights = torch.stack([
++                sample_masks[name].to(embeddings.dtype) for name in view_order
++            ]).unsqueeze(-1)
++        pooled = (embeddings * weights).sum(0) / weights.sum(0).clamp_min(1)
++        mu, logvar = self.fc_mu(pooled), self.fc_logvar(pooled)
++        return mu, logvar, self.reparameterize(mu, logvar)

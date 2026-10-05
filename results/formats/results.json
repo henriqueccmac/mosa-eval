@@ -1,0 +1,901 @@
+{
+  "source_commit": "12f4651b50a4da6937255afe830452a8706d8f23",
+  "cases": [
+    {
+      "encoding": "csv_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "csv_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "csv.gz_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "csv.gz_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "csv.bz2_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "csv.bz2_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "csv.xz_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "csv.xz_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "csv.zip_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "csv.zip_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tsv_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tsv_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tsv.gz_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tsv.gz_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tsv.bz2_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tsv.bz2_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tsv.xz_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tsv.xz_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tsv.zip_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tsv.zip_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "txt_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "txt_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "txt.gz_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "txt.gz_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "txt.bz2_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "txt.bz2_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "txt.xz_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "txt.xz_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "txt.zip_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "txt.zip_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tab_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tab_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tab.gz_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tab.gz_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tab.bz2_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tab.bz2_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tab.xz_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tab.xz_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tab.zip_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "tab.zip_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "parquet_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "parquet_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "parquet_column",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "parquet_column",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "pq_native",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "pq_native",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "pq_column",
+      "storage": "h5mu",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "pq_column",
+      "storage": "zarr",
+      "status": "passed",
+      "samples": 4,
+      "checks": [
+        "values",
+        "missing_entries",
+        "absent_view",
+        "sample_identifiers",
+        "feature_names",
+        "metadata",
+        "mutations",
+        "identifier_mapping",
+        "selected_view_loading"
+      ]
+    },
+    {
+      "encoding": "mixed_cli",
+      "storage": "h5mu",
+      "command_result": {
+        "command": [
+          "python",
+          "-B",
+          "-c",
+          "from mosa.cli import main; main()",
+          "convert",
+          "--conditionals",
+          "build/formats/csv.gz_native/metadata.csv.gz",
+          "--view",
+          "expression:build/formats/parquet_column/expression.parquet",
+          "--view",
+          "methylation:build/formats/tab.xz_native/methylation.tab.xz",
+          "--mutations",
+          "build/formats/pq_native/mutations.pq",
+          "--id-map",
+          "build/formats/tsv.zip_native/id_map.tsv.zip",
+          "--format",
+          "h5mu",
+          "--output",
+          "build/formats/cli_mixed.h5mu"
+        ],
+        "exit_code": 0,
+        "log": "formats/cli_h5mu.log"
+      },
+      "status": "passed"
+    },
+    {
+      "encoding": "mixed_cli",
+      "storage": "zarr",
+      "command_result": {
+        "command": [
+          "python",
+          "-B",
+          "-c",
+          "from mosa.cli import main; main()",
+          "convert",
+          "--conditionals",
+          "build/formats/csv.gz_native/metadata.csv.gz",
+          "--view",
+          "expression:build/formats/parquet_column/expression.parquet",
+          "--view",
+          "methylation:build/formats/tab.xz_native/methylation.tab.xz",
+          "--mutations",
+          "build/formats/pq_native/mutations.pq",
+          "--id-map",
+          "build/formats/tsv.zip_native/id_map.tsv.zip",
+          "--format",
+          "zarr",
+          "--output",
+          "build/formats/cli_mixed.zarr"
+        ],
+        "exit_code": 0,
+        "log": "formats/cli_zarr.log"
+      },
+      "status": "passed"
+    },
+    {
+      "encoding": "json",
+      "status": "passed",
+      "check": "unsupported format rejected"
+    },
+    {
+      "encoding": "xlsx",
+      "status": "passed",
+      "check": "unsupported format rejected"
+    },
+    {
+      "encoding": "feather",
+      "status": "passed",
+      "check": "unsupported format rejected"
+    },
+    {
+      "encoding": "multiple.csv.zip",
+      "status": "passed",
+      "check": "multiple-member ZIP rejected"
+    }
+  ]
+}

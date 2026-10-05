@@ -1,0 +1,16 @@
+
+Conversion report
+  Samples
+    in metadata:                       4
+    in at least one view:              4
+    matched on both:                   4
+    dropped, no metadata:              0
+    dropped, no view data:             0
+    final:                             4
+  Views
+    expression            2 features       4 / 4 samples present
+    methylation           2 features       3 / 4 samples present
+  Samples by view count
+    1 view:                            1
+    2 views:                           3
+

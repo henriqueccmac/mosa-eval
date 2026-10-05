@@ -1,0 +1,60 @@
+COMMAND ["python", "-B", "-c", "from mosa.cli import main; main()", "plot", "--config", "build/mofa/samples_60/config.yaml"]
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from mosa.cli import main; main()
+                               ~~~~^^
+  File "./source/src/mosa/cli.py", line 695, in main
+    handlers[args.command](args)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "./source/src/mosa/cli.py", line 317, in _plot
+    plots_dir = generate_all_plots(output_dir, cfg.data, cfg.model)
+  File "./source/src/mosa/plot.py", line 907, in generate_all_plots
+    _generate_umap_plots(data, views, plots_dir, palette, pca_components)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./source/src/mosa/plot.py", line 840, in _generate_umap_plots
+    _make_umap_plot(
+    ~~~~~~~~~~~~~~~^
+        omic_data["recon"],
+        ^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        pca_components,
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "./source/src/mosa/plot.py", line 816, in _make_umap_plot
+    embedding = compute_umap_embedding(df, pca_components=pca_comp)
+  File "./source/src/mosa/plot.py", line 227, in compute_umap_embedding
+    ).fit_transform(X)
+      ~~~~~~~~~~~~~^^^
+  File "<environment>/lib/python3.13/site-packages/umap/umap_.py", line 2935, in fit_transform
+    self.fit(X, y, ensure_all_finite, **kwargs)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<environment>/lib/python3.13/site-packages/umap/umap_.py", line 2372, in fit
+    X = check_array(
+        X,
+    ...<3 lines>...
+        ensure_all_finite=ensure_all_finite,
+    )
+  File "<environment>/lib/python3.13/site-packages/sklearn/utils/validation.py", line 1074, in check_array
+    _assert_all_finite(
+    ~~~~~~~~~~~~~~~~~~^
+        array,
+        ^^^^^^
+    ...<2 lines>...
+        allow_nan=ensure_all_finite == "allow-nan",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<environment>/lib/python3.13/site-packages/sklearn/utils/validation.py", line 133, in _assert_all_finite
+    _assert_all_finite_element_wise(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        X,
+        ^^
+    ...<4 lines>...
+        input_name=input_name,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<environment>/lib/python3.13/site-packages/sklearn/utils/validation.py", line 182, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input contains NaN.

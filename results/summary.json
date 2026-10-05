@@ -1,0 +1,38 @@
+{
+  "source_revision": "12f4651b50a4da6937255afe830452a8706d8f23",
+  "scenarios": {
+    "controls": 2,
+    "changes": 12,
+    "all_passed": true,
+    "change_measurements_match": true,
+    "baseline_test_cases": 416,
+    "extension_test_cases": 417
+  },
+  "configuration_alternatives": {
+    "cases": 26,
+    "passed": 26
+  },
+  "input_formats": {
+    "conversion_loading": 48,
+    "mixed_cli": 2,
+    "rejections": 4,
+    "passed": 54
+  },
+  "mofa": {
+    "api_tests_passed": 47,
+    "samples_60": {
+      "training": "passed",
+      "reload": "passed",
+      "nonfinite_reconstruction_entries": 300,
+      "plotting": "expected_failure",
+      "cross_validation": "expected_failure"
+    },
+    "samples_50": {
+      "training": "passed",
+      "reload": "passed",
+      "plotting": "passed",
+      "cross_validation": "passed",
+      "search_completed_trials": 2
+    }
+  }
+}

@@ -1,0 +1,5 @@
+COMMAND ["python", "-B", "-c", "from mosa.cli import main; main()", "transform", "--checkpoint", "build/mofa/samples_50/outputs/mofa_model.hdf5", "--input", "build/mofa/samples_50/data.h5mu", "--output", "build/mofa/samples_50/transformed", "--reconstruct"]
+[INFO] Loading MuData from build/mofa/samples_50/data.h5mu
+[INFO] Loaded 50 samples — gexp: 40, meth: 30 (0.02s)
+Latent representations saved to build/mofa/samples_50/transformed/latent.parquet
+Reconstructions saved to build/mofa/samples_50/transformed/

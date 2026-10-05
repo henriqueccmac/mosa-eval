@@ -1,0 +1,12 @@
+--- a
++++ b
+@@ -11,6 +11,9 @@
+   accelerator: cpu
+   devices: 1
+   random_seed: 42
++  use_kl_scheduler: true
++  kl_warmup_epochs: 1
++  kl_weight_final: 0.001
+   views:
+     gexp:
+       hidden_layer_dims:

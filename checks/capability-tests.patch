@@ -1,0 +1,26 @@
+--- a/tests/test_cli_errors.py
++++ b/tests/test_cli_errors.py
+@@ -242,9 +242,12 @@
+ 
+ 
+ def test_cross_validate_rejects_model_without_out_of_sample(
+-    tmp_path, capsys, make_h5mu_file
++    tmp_path, capsys, make_h5mu_file, monkeypatch
+ ):
+     pytest.importorskip("mofapy2")
++    from mosa.models.mofa.model import MOFAModel
++
++    monkeypatch.setattr(MOFAModel, "supports_out_of_sample", False)
+     h5mu = make_h5mu_file(tmp_path)
+     cfg = _config(tmp_path, h5mu, model="model:\n  type: mofa\n")
+     assert_guided_failure(
+@@ -265,6 +268,9 @@
+         raise AssertionError("optimize created a study before rejecting the model")
+ 
+     monkeypatch.setattr(optuna, "create_study", no_study)
++    from mosa.models.mofa.model import MOFAModel
++
++    monkeypatch.setattr(MOFAModel, "supports_out_of_sample", False)
+     h5mu = make_h5mu_file(tmp_path)
+     cfg = _config(tmp_path, h5mu, model="model:\n  type: mofa\n")
+     space = _write(

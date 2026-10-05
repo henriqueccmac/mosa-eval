@@ -1,0 +1,10 @@
+--- a
++++ b
+@@ -11,6 +11,7 @@
+   accelerator: cpu
+   devices: 1
+   random_seed: 42
++  fusion_method: mean
+   views:
+     gexp:
+       hidden_layer_dims:

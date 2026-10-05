@@ -1,0 +1,26 @@
+--- a/src/mosa/models/mosa/config.py
++++ b/src/mosa/models/mosa/config.py
+@@ -8,7 +8,7 @@
+ 
+ _VALID_FUSION_METHODS = ("concat", "poe")
+ _VALID_LOSS_TYPES = ("mean", "macro")
+-_VALID_LR_SCHEDULERS = ("none", "step")
++_VALID_LR_SCHEDULERS = ("none", "step", "exponential")
+ _VALID_PRECISIONS = ("32", "16-mixed", "bf16-mixed")
+ _VALID_ACCELERATORS = ("auto", "cpu", "gpu", "mps")
+ _VALID_PREPROCESSING_MODES = ("standardize", "center", "none")
+--- a/src/mosa/models/mosa/vae/vae_module.py
++++ b/src/mosa/models/mosa/vae/vae_module.py
+@@ -480,6 +480,12 @@
+                     )
+                 )
+ 
++        if self.config.lr_scheduler == "exponential":
++            schedulers = [
++                torch.optim.lr_scheduler.ExponentialLR(opt, gamma=self.config.lr_gamma)
++                for opt in optimizers
++            ]
++
+         if schedulers:
+             return optimizers, schedulers
+         return optimizers

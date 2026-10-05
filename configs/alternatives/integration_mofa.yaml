@@ -1,0 +1,16 @@
+data:
+  path: build/alternatives/mofa.h5mu
+  views:
+  - gexp
+  - meth
+  use_tissue: false
+  use_mutations: false
+model:
+  type: mofa
+  n_factors: 3
+  iterations: 100
+  drop_r2: null
+  random_seed: 42
+  output_dir: build/alternatives/integration_mofa/outputs
+evaluation:
+  test_size: 0

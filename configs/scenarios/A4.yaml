@@ -1,0 +1,29 @@
+data:
+  path: build/scenarios/A4/store.h5mu
+  views:
+  - gexp
+  - meth
+  - crispr
+model:
+  type: mosa_vae
+  output_dir: build/scenarios/A4/outputs
+  joint_latent_dim: 8
+  num_epochs: 1
+  batch_size: 16
+  accelerator: cpu
+  devices: 1
+  random_seed: 42
+  encoder_architecture: residual_mlp
+  views:
+    gexp:
+      hidden_layer_dims:
+      - 16
+    meth:
+      hidden_layer_dims:
+      - 16
+    crispr:
+      hidden_layer_dims:
+      - 16
+evaluation:
+  test_size: 0.2
+  n_folds: 3

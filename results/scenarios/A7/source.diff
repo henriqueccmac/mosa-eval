@@ -1,0 +1,41 @@
+--- a/src/mosa/cli.py
++++ b/src/mosa/cli.py
+@@ -587,7 +587,7 @@
+         action="append",
+         help="View spec as 'name:path' (e.g. 'gexp:data/gexp.parquet'). Repeat for each "
+         "modality. Repeating the same name assembles that omic from several files: "
+-        "samples concatenate, features union. Formats: .csv, .tsv, .txt, .parquet "
++        "samples concatenate, features union. Formats: .csv, .tsv, .txt, .parquet, .feather "
+         "(delimited ones may be .gz).",
+     )
+     convert_parser.add_argument(
+--- a/src/mosa/data/io.py
++++ b/src/mosa/data/io.py
+@@ -380,9 +380,11 @@
+         return "tsv"
+     if ext in (".parquet", ".pq"):
+         return "parquet"
++    if ext == ".feather":
++        return "feather"
+     raise DataError(
+         f"Unsupported table format '{ext or path}'. Supported: .csv, .tsv, .txt, "
+-        f".parquet (optionally .gz/.bz2/.xz/.zip for the delimited formats)."
++        f".parquet, .feather (optionally .gz/.bz2/.xz/.zip for the delimited formats)."
+     )
+ 
+ 
+@@ -390,10 +392,10 @@
+     """Read a table into a DataFrame, dispatching on file extension."""
+     fmt = _table_format(path)
+ 
+-    if fmt == "parquet":
+-        df = pd.read_parquet(path)
+-        # pandas restores its own index from parquet metadata; files from other
+-        # tools (R arrow, Spark) arrive with a RangeIndex, first column = index.
++    if fmt in ("parquet", "feather"):
++        df = pd.read_parquet(path) if fmt == "parquet" else pd.read_feather(path)
++        # Parquet may restore an index from metadata; Feather and tables from
++        # other tools use the first column as the row index.
+         if index_col is not None and isinstance(df.index, pd.RangeIndex):
+             df = df.set_index(df.columns[index_col])
+         return df

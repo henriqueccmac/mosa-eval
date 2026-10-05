@@ -1,0 +1,589 @@
+COMMAND ["python", "-B", "-c", "from mosa.cli import main; main()", "optimize", "--config", "build/mofa/samples_50/search_config.yaml", "--search-space", "build/mofa/samples_50/search.yaml", "--trials", "2"]
+[INFO] Loading MuData from build/mofa/samples_50/data.h5mu
+[INFO] Loaded 50 samples — gexp: 40, meth: 30 (0.02s)
+[INFO] Seed set to 42
+[I 2026-10-05 14:08:48,833] A new study created in memory with name: no-name-46a55493-5be2-4eaa-a59e-222ec658fadf
+
+        #########################################################
+        ###           __  __  ____  ______                    ### 
+        ###          |  \/  |/ __ \|  ____/\    _             ### 
+        ###          | \  / | |  | | |__ /  \ _| |_           ### 
+        ###          | |\/| | |  | |  __/ /\ \_   _|          ###
+        ###          | |  | | |__| | | / ____ \|_|            ###
+        ###          |_|  |_|\____/|_|/_/    \_\              ###
+        ###                                                   ### 
+        ######################################################### 
+         
+
+
+Successfully loaded view='gexp' group='Cell_Line' with N=15 samples and D=40 features...
+Successfully loaded view='gexp' group='Organoid' with N=10 samples and D=40 features...
+Successfully loaded view='meth' group='Cell_Line' with N=15 samples and D=30 features...
+Successfully loaded view='meth' group='Organoid' with N=10 samples and D=30 features...
+
+
+Model options:
+- Automatic Relevance Determination prior on the factors: True
+- Automatic Relevance Determination prior on the weights: True
+- Spike-and-slab prior on the factors: False
+- Spike-and-slab prior on the weights: True
+Likelihoods:
+- View 0 (gexp): gaussian
+- View 1 (meth): gaussian
+
+
+
+Warning: some group(s) have less than 15 samples, MOFA won't be able to learn meaningful factors for these group(s)...
+
+
+
+######################################
+## Training the model with seed 42 ##
+######################################
+
+
+ELBO before training: -7925.19 
+
+Iteration 1: time=0.00, ELBO=-3920.88, deltaELBO=4004.312 (50.52639047%), Factors=3
+Iteration 2: time=0.00, Factors=3
+Iteration 3: time=0.00, Factors=3
+Iteration 4: time=0.00, Factors=3
+Iteration 5: time=0.00, Factors=3
+Iteration 6: time=0.00, ELBO=-3837.04, deltaELBO=83.840 (1.05789274%), Factors=3
+Iteration 7: time=0.00, Factors=3
+Iteration 8: time=0.00, Factors=3
+Iteration 9: time=0.00, Factors=3
+Iteration 10: time=0.00, Factors=3
+Iteration 11: time=0.00, ELBO=-3808.37, deltaELBO=28.665 (0.36169796%), Factors=3
+Iteration 12: time=0.00, Factors=3
+Iteration 13: time=0.00, Factors=3
+Iteration 14: time=0.00, Factors=3
+Iteration 15: time=0.00, Factors=3
+Iteration 16: time=0.00, ELBO=-3802.87, deltaELBO=5.498 (0.06936877%), Factors=3
+Iteration 17: time=0.00, Factors=3
+Iteration 18: time=0.00, Factors=3
+Iteration 19: time=0.00, Factors=3
+Iteration 20: time=0.00, Factors=3
+Iteration 21: time=0.00, ELBO=-3801.19, deltaELBO=1.689 (0.02130721%), Factors=3
+Iteration 22: time=0.00, Factors=3
+Iteration 23: time=0.00, Factors=3
+Iteration 24: time=0.00, Factors=3
+Iteration 25: time=0.00, Factors=3
+Iteration 26: time=0.00, ELBO=-3800.38, deltaELBO=0.810 (0.01021813%), Factors=3
+Iteration 27: time=0.00, Factors=3
+Iteration 28: time=0.00, Factors=3
+Iteration 29: time=0.00, Factors=3
+Iteration 30: time=0.00, Factors=3
+Iteration 31: time=0.00, ELBO=-3799.90, deltaELBO=0.473 (0.00597409%), Factors=3
+Iteration 32: time=0.00, Factors=3
+Iteration 33: time=0.00, Factors=3
+Iteration 34: time=0.00, Factors=3
+Iteration 35: time=0.00, Factors=3
+Iteration 36: time=0.00, ELBO=-3799.59, deltaELBO=0.310 (0.00391202%), Factors=3
+Iteration 37: time=0.00, Factors=3
+Iteration 38: time=0.00, Factors=3
+Iteration 39: time=0.00, Factors=3
+Iteration 40: time=0.00, Factors=3
+Iteration 41: time=0.00, ELBO=-3799.37, deltaELBO=0.219 (0.00275755%), Factors=3
+Iteration 42: time=0.00, Factors=3
+Iteration 43: time=0.00, Factors=3
+Iteration 44: time=0.00, Factors=3
+Iteration 45: time=0.00, Factors=3
+Iteration 46: time=0.00, ELBO=-3799.21, deltaELBO=0.162 (0.00204710%), Factors=3
+Iteration 47: time=0.00, Factors=3
+Iteration 48: time=0.00, Factors=3
+Iteration 49: time=0.00, Factors=3
+Iteration 50: time=0.00, Factors=3
+Iteration 51: time=0.00, ELBO=-3744.05, deltaELBO=55.158 (0.69598383%), Factors=3
+Iteration 52: time=0.00, Factors=3
+Iteration 53: time=0.00, Factors=3
+Iteration 54: time=0.00, Factors=3
+Iteration 55: time=0.00, Factors=3
+Iteration 56: time=0.00, ELBO=-3743.95, deltaELBO=0.105 (0.00132336%), Factors=3
+Iteration 57: time=0.00, Factors=3
+Iteration 58: time=0.00, Factors=3
+Iteration 59: time=0.00, Factors=3
+Iteration 60: time=0.00, Factors=3
+Iteration 61: time=0.00, ELBO=-3743.87, deltaELBO=0.082 (0.00104056%), Factors=3
+Iteration 62: time=0.00, Factors=3
+Iteration 63: time=0.00, Factors=3
+Iteration 64: time=0.00, Factors=3
+Iteration 65: time=0.00, Factors=3
+Iteration 66: time=0.00, ELBO=-3743.80, deltaELBO=0.067 (0.00084134%), Factors=3
+Iteration 67: time=0.00, Factors=3
+Iteration 68: time=0.00, Factors=3
+Iteration 69: time=0.00, Factors=3
+Iteration 70: time=0.00, Factors=3
+Iteration 71: time=0.00, ELBO=-3743.74, deltaELBO=0.055 (0.00069616%), Factors=3
+Iteration 72: time=0.00, Factors=3
+Iteration 73: time=0.00, Factors=3
+Iteration 74: time=0.00, Factors=3
+Iteration 75: time=0.00, Factors=3
+Iteration 76: time=0.00, ELBO=-3743.70, deltaELBO=0.047 (0.00058725%), Factors=3
+Iteration 77: time=0.00, Factors=3
+Iteration 78: time=0.00, Factors=3
+Iteration 79: time=0.00, Factors=3
+Iteration 80: time=0.00, Factors=3
+Iteration 81: time=0.00, ELBO=-3743.66, deltaELBO=0.040 (0.00050343%), Factors=3
+Iteration 82: time=0.00, Factors=3
+Iteration 83: time=0.00, Factors=3
+Iteration 84: time=0.00, Factors=3
+Iteration 85: time=0.00, Factors=3
+Iteration 86: time=0.00, ELBO=-3743.62, deltaELBO=0.035 (0.00043747%), Factors=3
+Iteration 87: time=0.00, Factors=3
+Iteration 88: time=0.00, Factors=3
+Iteration 89: time=0.00, Factors=3
+Iteration 90: time=0.00, Factors=3
+Iteration 91: time=0.00, ELBO=-3743.59, deltaELBO=0.030 (0.00038452%), Factors=3
+
+Converged!
+
+
+
+#######################
+## Training finished ##
+#######################
+
+
+Saving model in build/runtime/tmp/mosa_mofa_9mbnga4b/mofa_model.hdf5...
+
+        #########################################################
+        ###           __  __  ____  ______                    ### 
+        ###          |  \/  |/ __ \|  ____/\    _             ### 
+        ###          | \  / | |  | | |__ /  \ _| |_           ### 
+        ###          | |\/| | |  | |  __/ /\ \_   _|          ###
+        ###          | |  | | |__| | | / ____ \|_|            ###
+        ###          |_|  |_|\____/|_|/_/    \_\              ###
+        ###                                                   ### 
+        ######################################################### 
+         
+
+
+Successfully loaded view='gexp' group='Cell_Line' with N=15 samples and D=40 features...
+Successfully loaded view='gexp' group='Organoid' with N=10 samples and D=40 features...
+Successfully loaded view='meth' group='Cell_Line' with N=15 samples and D=30 features...
+Successfully loaded view='meth' group='Organoid' with N=10 samples and D=30 features...
+
+
+Model options:
+- Automatic Relevance Determination prior on the factors: True
+- Automatic Relevance Determination prior on the weights: True
+- Spike-and-slab prior on the factors: False
+- Spike-and-slab prior on the weights: True
+Likelihoods:
+- View 0 (gexp): gaussian
+- View 1 (meth): gaussian
+
+
+
+Warning: some group(s) have less than 15 samples, MOFA won't be able to learn meaningful factors for these group(s)...
+
+
+
+######################################
+## Training the model with seed 42 ##
+######################################
+
+
+ELBO before training: -7687.46 
+
+Iteration 1: time=0.00, ELBO=-3884.72, deltaELBO=3802.740 (49.46680333%), Factors=3
+Iteration 2: time=0.00, Factors=3
+Iteration 3: time=0.00, Factors=3
+Iteration 4: time=0.00, Factors=3
+Iteration 5: time=0.00, Factors=3
+Iteration 6: time=0.00, ELBO=-3800.33, deltaELBO=84.392 (1.09778534%), Factors=3
+Iteration 7: time=0.00, Factors=3
+Iteration 8: time=0.00, Factors=3
+Iteration 9: time=0.00, Factors=3
+Iteration 10: time=0.00, Factors=3
+Iteration 11: time=0.00, ELBO=-3781.56, deltaELBO=18.769 (0.24415065%), Factors=3
+Iteration 12: time=0.00, Factors=3
+Iteration 13: time=0.00, Factors=3
+Iteration 14: time=0.00, Factors=3
+Iteration 15: time=0.00, Factors=3
+Iteration 16: time=0.00, ELBO=-3778.16, deltaELBO=3.402 (0.04425472%), Factors=3
+Iteration 17: time=0.00, Factors=3
+Iteration 18: time=0.00, Factors=3
+Iteration 19: time=0.00, Factors=3
+Iteration 20: time=0.00, Factors=3
+Iteration 21: time=0.00, ELBO=-3776.79, deltaELBO=1.367 (0.01777572%), Factors=3
+Iteration 22: time=0.00, Factors=3
+Iteration 23: time=0.00, Factors=3
+Iteration 24: time=0.00, Factors=3
+Iteration 25: time=0.00, Factors=3
+Iteration 26: time=0.00, ELBO=-3772.63, deltaELBO=4.158 (0.05408420%), Factors=3
+Iteration 27: time=0.00, Factors=3
+Iteration 28: time=0.00, Factors=3
+Iteration 29: time=0.00, Factors=3
+Iteration 30: time=0.00, Factors=3
+Iteration 31: time=0.00, ELBO=-3769.99, deltaELBO=2.639 (0.03432249%), Factors=3
+Iteration 32: time=0.00, Factors=3
+Iteration 33: time=0.00, Factors=3
+Iteration 34: time=0.00, Factors=3
+Iteration 35: time=0.00, Factors=3
+Iteration 36: time=0.00, ELBO=-3768.60, deltaELBO=1.389 (0.01806969%), Factors=3
+Iteration 37: time=0.00, Factors=3
+Iteration 38: time=0.00, Factors=3
+Iteration 39: time=0.00, Factors=3
+Iteration 40: time=0.00, Factors=3
+Iteration 41: time=0.00, ELBO=-3767.55, deltaELBO=1.052 (0.01368454%), Factors=3
+Iteration 42: time=0.00, Factors=3
+Iteration 43: time=0.00, Factors=3
+Iteration 44: time=0.00, Factors=3
+Iteration 45: time=0.00, Factors=3
+Iteration 46: time=0.00, ELBO=-3766.85, deltaELBO=0.700 (0.00910511%), Factors=3
+Iteration 47: time=0.00, Factors=3
+Iteration 48: time=0.00, Factors=3
+Iteration 49: time=0.00, Factors=3
+Iteration 50: time=0.00, Factors=3
+Iteration 51: time=0.00, ELBO=-3711.25, deltaELBO=55.601 (0.72326251%), Factors=3
+Iteration 52: time=0.00, Factors=3
+Iteration 53: time=0.00, Factors=3
+Iteration 54: time=0.00, Factors=3
+Iteration 55: time=0.00, Factors=3
+Iteration 56: time=0.00, ELBO=-3710.85, deltaELBO=0.404 (0.00524997%), Factors=3
+Iteration 57: time=0.00, Factors=3
+Iteration 58: time=0.00, Factors=3
+Iteration 59: time=0.00, Factors=3
+Iteration 60: time=0.00, Factors=3
+Iteration 61: time=0.00, ELBO=-3710.62, deltaELBO=0.227 (0.00295549%), Factors=3
+Iteration 62: time=0.00, Factors=3
+Iteration 63: time=0.00, Factors=3
+Iteration 64: time=0.00, Factors=3
+Iteration 65: time=0.00, Factors=3
+Iteration 66: time=0.00, ELBO=-3710.47, deltaELBO=0.155 (0.00201249%), Factors=3
+Iteration 67: time=0.00, Factors=3
+Iteration 68: time=0.00, Factors=3
+Iteration 69: time=0.00, Factors=3
+Iteration 70: time=0.00, Factors=3
+Iteration 71: time=0.00, ELBO=-3710.35, deltaELBO=0.113 (0.00147078%), Factors=3
+Iteration 72: time=0.00, Factors=3
+Iteration 73: time=0.00, Factors=3
+Iteration 74: time=0.00, Factors=3
+Iteration 75: time=0.00, Factors=3
+Iteration 76: time=0.00, ELBO=-3710.27, deltaELBO=0.087 (0.00113530%), Factors=3
+Iteration 77: time=0.00, Factors=3
+Iteration 78: time=0.00, Factors=3
+Iteration 79: time=0.00, Factors=3
+Iteration 80: time=0.00, Factors=3
+Iteration 81: time=0.00, ELBO=-3710.20, deltaELBO=0.070 (0.00091527%), Factors=3
+Iteration 82: time=0.00, Factors=3
+Iteration 83: time=0.00, Factors=3
+Iteration 84: time=0.00, Factors=3
+Iteration 85: time=0.00, Factors=3
+Iteration 86: time=0.00, ELBO=-3710.14, deltaELBO=0.059 (0.00076336%), Factors=3
+Iteration 87: time=0.00, Factors=3
+Iteration 88: time=0.00, Factors=3
+Iteration 89: time=0.00, Factors=3
+Iteration 90: time=0.00, Factors=3
+Iteration 91: time=0.00, ELBO=-3710.09, deltaELBO=0.050 (0.00065357%), Factors=3
+Iteration 92: time=0.00, Factors=3
+Iteration 93: time=0.00, Factors=3
+Iteration 94: time=0.00, Factors=3
+Iteration 95: time=0.00, Factors=3
+Iteration 96: time=0.00, ELBO=-3710.04, deltaELBO=0.044 (0.00057095%), Factors=3
+Iteration 97: time=0.00, Factors=3
+Iteration 98: time=0.00, Factors=3
+Iteration 99: time=0.00, Factors=3
+Iteration 100: time=0.00, Factors=3
+[WARNING] MOFA stopped at the iteration cap (100) without converging; raise model.iterations.
+
+
+#######################
+## Training finished ##
+#######################
+
+
+Saving model in build/runtime/tmp/mosa_mofa_8zyqnqu1/mofa_model.hdf5...
+[I 2026-10-05 14:08:49,129] Trial 0 finished with value: 1.0313286105757902 and parameters: {'n_factors': 3}. Best is trial 0 with value: 1.0313286105757902.
+
+        #########################################################
+        ###           __  __  ____  ______                    ### 
+        ###          |  \/  |/ __ \|  ____/\    _             ### 
+        ###          | \  / | |  | | |__ /  \ _| |_           ### 
+        ###          | |\/| | |  | |  __/ /\ \_   _|          ###
+        ###          | |  | | |__| | | / ____ \|_|            ###
+        ###          |_|  |_|\____/|_|/_/    \_\              ###
+        ###                                                   ### 
+        ######################################################### 
+         
+
+
+Successfully loaded view='gexp' group='Cell_Line' with N=15 samples and D=40 features...
+Successfully loaded view='gexp' group='Organoid' with N=10 samples and D=40 features...
+Successfully loaded view='meth' group='Cell_Line' with N=15 samples and D=30 features...
+Successfully loaded view='meth' group='Organoid' with N=10 samples and D=30 features...
+
+
+Model options:
+- Automatic Relevance Determination prior on the factors: True
+- Automatic Relevance Determination prior on the weights: True
+- Spike-and-slab prior on the factors: False
+- Spike-and-slab prior on the weights: True
+Likelihoods:
+- View 0 (gexp): gaussian
+- View 1 (meth): gaussian
+
+
+
+Warning: some group(s) have less than 15 samples, MOFA won't be able to learn meaningful factors for these group(s)...
+
+
+
+######################################
+## Training the model with seed 42 ##
+######################################
+
+
+ELBO before training: -6554.28 
+
+Iteration 1: time=0.00, ELBO=-3728.83, deltaELBO=2825.458 (43.10857473%), Factors=2
+Iteration 2: time=0.00, Factors=2
+Iteration 3: time=0.00, Factors=2
+Iteration 4: time=0.00, Factors=2
+Iteration 5: time=0.00, Factors=2
+Iteration 6: time=0.00, ELBO=-3673.16, deltaELBO=55.665 (0.84928700%), Factors=2
+Iteration 7: time=0.00, Factors=2
+Iteration 8: time=0.00, Factors=2
+Iteration 9: time=0.00, Factors=2
+Iteration 10: time=0.00, Factors=2
+Iteration 11: time=0.00, ELBO=-3654.25, deltaELBO=18.906 (0.28844554%), Factors=2
+Iteration 12: time=0.00, Factors=2
+Iteration 13: time=0.00, Factors=2
+Iteration 14: time=0.00, Factors=2
+Iteration 15: time=0.00, Factors=2
+Iteration 16: time=0.00, ELBO=-3650.03, deltaELBO=4.225 (0.06445845%), Factors=2
+Iteration 17: time=0.00, Factors=2
+Iteration 18: time=0.00, Factors=2
+Iteration 19: time=0.00, Factors=2
+Iteration 20: time=0.00, Factors=2
+Iteration 21: time=0.00, ELBO=-3648.83, deltaELBO=1.200 (0.01830730%), Factors=2
+Iteration 22: time=0.00, Factors=2
+Iteration 23: time=0.00, Factors=2
+Iteration 24: time=0.00, Factors=2
+Iteration 25: time=0.00, Factors=2
+Iteration 26: time=0.00, ELBO=-3648.27, deltaELBO=0.561 (0.00855570%), Factors=2
+Iteration 27: time=0.00, Factors=2
+Iteration 28: time=0.00, Factors=2
+Iteration 29: time=0.00, Factors=2
+Iteration 30: time=0.00, Factors=2
+Iteration 31: time=0.00, ELBO=-3647.95, deltaELBO=0.324 (0.00494475%), Factors=2
+Iteration 32: time=0.00, Factors=2
+Iteration 33: time=0.00, Factors=2
+Iteration 34: time=0.00, Factors=2
+Iteration 35: time=0.00, Factors=2
+Iteration 36: time=0.00, ELBO=-3647.73, deltaELBO=0.211 (0.00321723%), Factors=2
+Iteration 37: time=0.00, Factors=2
+Iteration 38: time=0.00, Factors=2
+Iteration 39: time=0.00, Factors=2
+Iteration 40: time=0.00, Factors=2
+Iteration 41: time=0.00, ELBO=-3647.59, deltaELBO=0.148 (0.00225864%), Factors=2
+Iteration 42: time=0.00, Factors=2
+Iteration 43: time=0.00, Factors=2
+Iteration 44: time=0.00, Factors=2
+Iteration 45: time=0.00, Factors=2
+Iteration 46: time=0.00, ELBO=-3647.48, deltaELBO=0.110 (0.00167209%), Factors=2
+Iteration 47: time=0.00, Factors=2
+Iteration 48: time=0.00, Factors=2
+Iteration 49: time=0.00, Factors=2
+Iteration 50: time=0.00, Factors=2
+Iteration 51: time=0.00, ELBO=-3610.70, deltaELBO=36.773 (0.56105262%), Factors=2
+Iteration 52: time=0.00, Factors=2
+Iteration 53: time=0.00, Factors=2
+Iteration 54: time=0.00, Factors=2
+Iteration 55: time=0.00, Factors=2
+Iteration 56: time=0.00, ELBO=-3610.63, deltaELBO=0.071 (0.00107704%), Factors=2
+Iteration 57: time=0.00, Factors=2
+Iteration 58: time=0.00, Factors=2
+Iteration 59: time=0.00, Factors=2
+Iteration 60: time=0.00, Factors=2
+Iteration 61: time=0.00, ELBO=-3610.58, deltaELBO=0.055 (0.00084581%), Factors=2
+Iteration 62: time=0.00, Factors=2
+Iteration 63: time=0.00, Factors=2
+Iteration 64: time=0.00, Factors=2
+Iteration 65: time=0.00, Factors=2
+Iteration 66: time=0.00, ELBO=-3610.53, deltaELBO=0.045 (0.00068321%), Factors=2
+Iteration 67: time=0.00, Factors=2
+Iteration 68: time=0.00, Factors=2
+Iteration 69: time=0.00, Factors=2
+Iteration 70: time=0.00, Factors=2
+Iteration 71: time=0.00, ELBO=-3610.50, deltaELBO=0.037 (0.00056489%), Factors=2
+Iteration 72: time=0.00, Factors=2
+Iteration 73: time=0.00, Factors=2
+Iteration 74: time=0.00, Factors=2
+Iteration 75: time=0.00, Factors=2
+Iteration 76: time=0.00, ELBO=-3610.46, deltaELBO=0.031 (0.00047622%), Factors=2
+Iteration 77: time=0.00, Factors=2
+Iteration 78: time=0.00, Factors=2
+Iteration 79: time=0.00, Factors=2
+Iteration 80: time=0.00, Factors=2
+Iteration 81: time=0.00, ELBO=-3610.44, deltaELBO=0.027 (0.00040804%), Factors=2
+
+Converged!
+
+
+
+#######################
+## Training finished ##
+#######################
+
+
+Saving model in build/runtime/tmp/mosa_mofa_xgirqks8/mofa_model.hdf5...
+
+        #########################################################
+        ###           __  __  ____  ______                    ### 
+        ###          |  \/  |/ __ \|  ____/\    _             ### 
+        ###          | \  / | |  | | |__ /  \ _| |_           ### 
+        ###          | |\/| | |  | |  __/ /\ \_   _|          ###
+        ###          | |  | | |__| | | / ____ \|_|            ###
+        ###          |_|  |_|\____/|_|/_/    \_\              ###
+        ###                                                   ### 
+        ######################################################### 
+         
+
+
+Successfully loaded view='gexp' group='Cell_Line' with N=15 samples and D=40 features...
+Successfully loaded view='gexp' group='Organoid' with N=10 samples and D=40 features...
+Successfully loaded view='meth' group='Cell_Line' with N=15 samples and D=30 features...
+Successfully loaded view='meth' group='Organoid' with N=10 samples and D=30 features...
+
+
+Model options:
+- Automatic Relevance Determination prior on the factors: True
+- Automatic Relevance Determination prior on the weights: True
+- Spike-and-slab prior on the factors: False
+- Spike-and-slab prior on the weights: True
+Likelihoods:
+- View 0 (gexp): gaussian
+- View 1 (meth): gaussian
+
+
+
+Warning: some group(s) have less than 15 samples, MOFA won't be able to learn meaningful factors for these group(s)...
+
+
+
+######################################
+## Training the model with seed 42 ##
+######################################
+
+
+ELBO before training: -6359.58 
+
+Iteration 1: time=0.00, ELBO=-3692.30, deltaELBO=2667.277 (41.94108128%), Factors=2
+Iteration 2: time=0.00, Factors=2
+Iteration 3: time=0.00, Factors=2
+Iteration 4: time=0.00, Factors=2
+Iteration 5: time=0.00, Factors=2
+Iteration 6: time=0.00, ELBO=-3635.80, deltaELBO=56.502 (0.88846012%), Factors=2
+Iteration 7: time=0.00, Factors=2
+Iteration 8: time=0.00, Factors=2
+Iteration 9: time=0.00, Factors=2
+Iteration 10: time=0.00, Factors=2
+Iteration 11: time=0.00, ELBO=-3626.90, deltaELBO=8.902 (0.13997322%), Factors=2
+Iteration 12: time=0.00, Factors=2
+Iteration 13: time=0.00, Factors=2
+Iteration 14: time=0.00, Factors=2
+Iteration 15: time=0.00, Factors=2
+Iteration 16: time=0.00, ELBO=-3624.22, deltaELBO=2.681 (0.04214946%), Factors=2
+Iteration 17: time=0.00, Factors=2
+Iteration 18: time=0.00, Factors=2
+Iteration 19: time=0.00, Factors=2
+Iteration 20: time=0.00, Factors=2
+Iteration 21: time=0.00, ELBO=-3623.02, deltaELBO=1.195 (0.01879136%), Factors=2
+Iteration 22: time=0.00, Factors=2
+Iteration 23: time=0.00, Factors=2
+Iteration 24: time=0.00, Factors=2
+Iteration 25: time=0.00, Factors=2
+Iteration 26: time=0.00, ELBO=-3620.76, deltaELBO=2.260 (0.03553501%), Factors=2
+Iteration 27: time=0.00, Factors=2
+Iteration 28: time=0.00, Factors=2
+Iteration 29: time=0.00, Factors=2
+Iteration 30: time=0.00, Factors=2
+Iteration 31: time=0.00, ELBO=-3619.32, deltaELBO=1.448 (0.02277521%), Factors=2
+Iteration 32: time=0.00, Factors=2
+Iteration 33: time=0.00, Factors=2
+Iteration 34: time=0.00, Factors=2
+Iteration 35: time=0.00, Factors=2
+Iteration 36: time=0.00, ELBO=-3618.61, deltaELBO=0.704 (0.01106904%), Factors=2
+Iteration 37: time=0.00, Factors=2
+Iteration 38: time=0.00, Factors=2
+Iteration 39: time=0.00, Factors=2
+Iteration 40: time=0.00, Factors=2
+Iteration 41: time=0.00, ELBO=-3617.82, deltaELBO=0.793 (0.01246356%), Factors=2
+Iteration 42: time=0.00, Factors=2
+Iteration 43: time=0.00, Factors=2
+Iteration 44: time=0.00, Factors=2
+Iteration 45: time=0.00, Factors=2
+Iteration 46: time=0.00, ELBO=-3617.01, deltaELBO=0.808 (0.01271268%), Factors=2
+Iteration 47: time=0.00, Factors=2
+Iteration 48: time=0.00, Factors=2
+Iteration 49: time=0.00, Factors=2
+Iteration 50: time=0.00, Factors=2
+Iteration 51: time=0.00, ELBO=-3579.00, deltaELBO=38.015 (0.59776250%), Factors=2
+Iteration 52: time=0.00, Factors=2
+Iteration 53: time=0.00, Factors=2
+Iteration 54: time=0.00, Factors=2
+Iteration 55: time=0.00, Factors=2
+Iteration 56: time=0.00, ELBO=-3578.14, deltaELBO=0.853 (0.01341619%), Factors=2
+Iteration 57: time=0.00, Factors=2
+Iteration 58: time=0.00, Factors=2
+Iteration 59: time=0.00, Factors=2
+Iteration 60: time=0.00, Factors=2
+Iteration 61: time=0.00, ELBO=-3577.97, deltaELBO=0.170 (0.00267090%), Factors=2
+Iteration 62: time=0.00, Factors=2
+Iteration 63: time=0.00, Factors=2
+Iteration 64: time=0.00, Factors=2
+Iteration 65: time=0.00, Factors=2
+Iteration 66: time=0.00, ELBO=-3577.88, deltaELBO=0.090 (0.00141472%), Factors=2
+Iteration 67: time=0.00, Factors=2
+Iteration 68: time=0.00, Factors=2
+Iteration 69: time=0.00, Factors=2
+Iteration 70: time=0.00, Factors=2
+Iteration 71: time=0.00, ELBO=-3577.81, deltaELBO=0.071 (0.00112061%), Factors=2
+Iteration 72: time=0.00, Factors=2
+Iteration 73: time=0.00, Factors=2
+Iteration 74: time=0.00, Factors=2
+Iteration 75: time=0.00, Factors=2
+Iteration 76: time=0.00, ELBO=-3577.75, deltaELBO=0.061 (0.00095954%), Factors=2
+Iteration 77: time=0.00, Factors=2
+Iteration 78: time=0.00, Factors=2
+Iteration 79: time=0.00, Factors=2
+Iteration 80: time=0.00, Factors=2
+Iteration 81: time=0.00, ELBO=-3577.70, deltaELBO=0.053 (0.00082718%), Factors=2
+Iteration 82: time=0.00, Factors=2
+Iteration 83: time=0.00, Factors=2
+Iteration 84: time=0.00, Factors=2
+Iteration 85: time=0.00, Factors=2
+Iteration 86: time=0.00, ELBO=-3577.65, deltaELBO=0.045 (0.00071525%), Factors=2
+Iteration 87: time=0.00, Factors=2
+Iteration 88: time=0.00, Factors=2
+Iteration 89: time=0.00, Factors=2
+Iteration 90: time=0.00, Factors=2
+Iteration 91: time=0.00, ELBO=-3577.61, deltaELBO=0.040 (0.00062348%), Factors=2
+Iteration 92: time=0.00, Factors=2
+Iteration 93: time=0.00, Factors=2
+Iteration 94: time=0.00, Factors=2
+Iteration 95: time=0.00, Factors=2
+Iteration 96: time=0.00, ELBO=-3577.58, deltaELBO=0.035 (0.00054956%), Factors=2
+Iteration 97: time=0.00, Factors=2
+Iteration 98: time=0.00, Factors=2
+Iteration 99: time=0.00, Factors=2
+Iteration 100: time=0.00, Factors=2
+[WARNING] MOFA stopped at the iteration cap (100) without converging; raise model.iterations.
+
+
+#######################
+## Training finished ##
+#######################
+
+
+Saving model in build/runtime/tmp/mosa_mofa_cpbttc0e/mofa_model.hdf5...
+[I 2026-10-05 14:08:49,252] Trial 1 finished with value: 1.0380977914311762 and parameters: {'n_factors': 2}. Best is trial 0 with value: 1.0313286105757902.
+Trials: 2 (n_trials=2)
+  completed: 2, pruned: 0
+
+Best value (mean aggregate NMSE): 1.0313
+Best params:
+  n_factors: 3

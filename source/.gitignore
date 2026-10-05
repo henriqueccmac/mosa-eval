@@ -1,0 +1,21 @@
+# Virtual environments
+.mosa_venv/
+venv/
+env/
+__pycache__/
+
+# System and Python files
+*.pyc
+*.pyo
+.DS_Store
+.ipynb_checkpoints/
+
+*.egg-info/
+
+# Data and Logs
+*.log
+outputs/
+notebooks/
+
+# Local scratch work
+dev/

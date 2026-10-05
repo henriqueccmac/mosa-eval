@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mosalib"
+version = "0.1.0"
+description = "Generative Multi-Omics Data Integration"
+requires-python = ">=3.11"
+dependencies = [
+    "torch==2.14.0",
+    "pytorch-lightning==2.6.6",
+    "pytorch-metric-learning==2.9.0",
+    "numpy==2.4.2",
+    "pandas==3.0.1",
+    "scikit-learn==1.8.0",
+    "scipy==1.17.1",
+    "PyYAML==6.0.3",
+    "mudata>=0.3.10,<0.4",
+    # 0.14 drops the zarr_write_format setting mudata <0.4 still reads.
+    "anndata>=0.10,<0.14",
+    "zarr>=3",
+    "pyarrow>=15.0",
+    "matplotlib==3.10.8",
+    "seaborn==0.13.2",
+    "umap-learn==0.5.11",
+    "optuna>=3.0",
+]
+
+[project.optional-dependencies]
+mofa = [
+    "mofapy2",
+    "mofax",
+    # CPU training needs no CuPy. For gpu_mode=true, install the CuPy wheel
+    # matching the CUDA toolkit separately (e.g. cupy-cuda12x).
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.0.0",
+]
+lint = [
+    # Pinned to the pre-commit rev: formatter style changes between releases.
+    "ruff==0.16.9",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+mosa = "mosa.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Import mosa from this checkout rather than from whatever an editable install
+# points at, so a git worktree tests its own source.
+pythonpath = ["src"]
+markers = [
+    "behavioral: asserts that training learns rather than that an interface holds; unseeded and hardware sensitive, so it runs nightly rather than on every commit",
+]
+filterwarnings = [
+    # Every MuData build, read and write must run under
+    # set_options(pull_on_update=False), in src/ and in tests alike.
+    "error:From 0.4:FutureWarning",
+    # mudata <0.4 reads an anndata setting deprecated in 0.13; anndata is
+    # capped below 0.14, where it is removed.
+    "ignore:This setting will be removed in 0.14:DeprecationWarning:mudata",
+    # Raised at import by mudata's namespace decorator, not by our calls.
+    "ignore:The decorator_name argument is deprecated:DeprecationWarning:mudata",
+    "ignore:The docstring_style argument is deprecated:DeprecationWarning:mudata",
+    # S*log(S) at S == 0 in the ELBO; mofapy2 zeroes the NaN right after.
+    "ignore:divide by zero encountered in log:RuntimeWarning:mofapy2",
+    "ignore:invalid value encountered in multiply:RuntimeWarning:mofapy2",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+# The codebase uses long lines deliberately (error messages, tensor
+# expressions). Reflowing them is a separate decision from linting.
+ignore = ["E501"]
+
+[tool.mypy]
+files = ["src"]
+# mudata, anndata, mofapy2, mofax and optuna ship no stubs.
+ignore_missing_imports = true
+# Third-party sources are not ours to type-check, and some use syntax newer
+# than the version mypy is running under.
+follow_imports = "skip"

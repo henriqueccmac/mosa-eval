@@ -1,0 +1,78 @@
+conditional_dim: 4
+data_cfg:
+  discrete_views: !!set {}
+  mask_layer_name: mask
+  path: data_newtest.h5mu
+  use_mutations: false
+  use_tissue: false
+  views:
+  - gexp
+  - meth
+  - crispr
+model_cfg:
+  accelerator: auto
+  accumulate_grad_batches: 1
+  adv_focal_gamma: 1.5
+  adv_learning_rate: 0.001
+  adv_weight: 0.01
+  batch_size: 512
+  checkpoint_top_k: 3
+  contrastive_weight: 0.0
+  devices: 1
+  early_stopping_patience: 20
+  fusion_method: poe
+  gradient_clip_val: 0.0
+  inference: false
+  joint_latent_dim: 32
+  kl_warmup_epochs: 100
+  kl_weight: 1.0e-05
+  kl_weight_final: 0.001
+  learning_rate: 0.001
+  lr_gamma: 0.5
+  lr_scheduler: step
+  lr_step_size: 100
+  num_epochs: 10
+  num_workers: 0
+  output_dir: outputs/benchmark
+  poe_use_shared_head: false
+  precision: '32'
+  preprocessing_mode: none
+  random_seed: 42
+  scaler_sample_frac: 1.0
+  shared_hidden_layer_dims: []
+  target_batch: Tumor
+  use_adv_class_weights: true
+  use_kl_scheduler: false
+  view_dropout_prob: 0.1
+  views:
+    crispr:
+      dropout_p: 0.1
+      hidden_layer_dims:
+      - 256
+      - 128
+      loss_type: mean
+      name: crispr
+      recon_weight: 1.0
+    gexp:
+      dropout_p: 0.1
+      hidden_layer_dims:
+      - 256
+      - 128
+      loss_type: mean
+      name: gexp
+      recon_weight: 1.0
+    meth:
+      dropout_p: 0.1
+      hidden_layer_dims:
+      - 256
+      - 128
+      loss_type: mean
+      name: meth
+      recon_weight: 1.0
+  weighted_random_sampler: false
+mosa_version: 0.1.0
+n_batches: 4
+view_input_dims:
+  crispr: 11396
+  gexp: 11396
+  meth: 11396

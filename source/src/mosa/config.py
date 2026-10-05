@@ -1,0 +1,182 @@
+from __future__ import annotations
+
+import difflib
+import logging
+from dataclasses import dataclass, field, fields
+from pathlib import Path
+
+from mosa.errors import ConfigError, DataError, MissingFileError
+
+logger = logging.getLogger(__name__)
+
+CV_STRATEGIES = ("stratified", "kfold")
+
+
+def check_unknown_keys(
+    cls, raw: dict, block: str, ignore: frozenset[str] | set[str] = frozenset()
+) -> None:
+    """Reject keys that are not fields of `cls`, suggesting the closest valid name.
+
+    `block` names the YAML location for the message (e.g. "model:" or
+    "model.views.gexp"). `ignore` names fields the caller supplies itself, so
+    setting them in YAML is an error rather than a silently ignored key.
+    """
+    valid = {f.name for f in fields(cls)} - ignore
+    unknown = sorted(set(raw) - valid)
+    if not unknown:
+        return
+
+    lines = []
+    unmatched = False
+    for key in unknown:
+        close = difflib.get_close_matches(key, sorted(valid), n=1, cutoff=0.6)
+        if close:
+            lines.append(f"Unknown key '{key}' in {block}. Did you mean '{close[0]}'?")
+        else:
+            lines.append(f"Unknown key '{key}' in {block}.")
+            unmatched = True
+
+    # Only worth dumping the full list when no suggestion landed; otherwise it
+    # buries the answer under 30+ names.
+    if unmatched:
+        lines.append(f"Valid keys: {sorted(valid)}")
+    raise ConfigError(" ".join(lines))
+
+
+@dataclass
+class DataConfig:
+    """Shared data definition. Consumed by every model."""
+
+    path: str = ""
+    views: list[str] = field(default_factory=list)
+    mask_layer_name: str = "mask"
+    discrete_views: set[str] = field(default_factory=set)
+    use_tissue: bool = True
+    use_mutations: bool = True
+
+    def __post_init__(self):
+        if isinstance(self.discrete_views, list):
+            self.discrete_views = set(self.discrete_views)
+        if not self.views:
+            raise ConfigError("data.views must not be empty")
+        bad = self.discrete_views - set(self.views)
+        if bad:
+            raise ConfigError(f"data.discrete_views not in data.views: {sorted(bad)}")
+
+    def validate_paths(self) -> None:
+        """Check that the MuData file/dir exists. Call before training."""
+        if not self.path:
+            raise MissingFileError("data.path is required")
+        p = Path(self.path)
+        if not (p.is_file() or p.is_dir()):
+            raise MissingFileError(f"data.path not found: {self.path}")
+
+    def validate_against_data(self, summary: dict) -> list[str]:
+        """Check structural requirements against a data summary (see data/io.py:summarize_structure).
+
+        Shared by the `validate` CLI path and load-time structure checks, so both
+        raise the same errors. Raises ValueError on the first hard failure. No
+        soft/warning-level structural checks exist today; returns [] for a
+        uniform interface with model-specific validate_against_data().
+        """
+        obs_columns = summary.get("obs_columns", [])
+        if "model_type" not in obs_columns:
+            raise DataError(
+                f"MuData .obs missing 'model_type' column. Available: {obs_columns}"
+            )
+
+        modalities = summary.get("modalities", {})
+        for view in self.views:
+            if view not in modalities:
+                raise DataError(
+                    f"View '{view}' not in MuData. Available: {list(modalities.keys())}"
+                )
+            layers = modalities[view].get("layers", [])
+            if self.mask_layer_name not in layers:
+                raise DataError(
+                    f"Mask layer '{self.mask_layer_name}' not in '{view}'. Available: {layers}"
+                )
+
+        return []
+
+
+@dataclass
+class EvaluationConfig:
+    """How data is held out for assessment: train/val holdout and cross-validation folds.
+
+    Independent of both the data and the model. No model reads these fields,
+    and optimize() holds them fixed while it mutates ModelConfig per trial.
+
+    strategy selects the cross-validation splitter: "stratified" balances
+    model_type across folds, "kfold" ignores it. shuffle False makes folds
+    contiguous blocks of the dataset's sample order.
+    """
+
+    test_size: float = 0.1
+    n_folds: int = 5
+    strategy: str = "stratified"
+    shuffle: bool = True
+
+    def __post_init__(self):
+        if not 0.0 <= self.test_size < 1.0:
+            raise ConfigError(f"test_size must be in [0, 1), got {self.test_size}")
+        if self.n_folds < 2:
+            raise ConfigError(f"n_folds must be at least 2, got {self.n_folds}")
+        if self.strategy not in CV_STRATEGIES:
+            raise ConfigError(
+                f"strategy must be one of {CV_STRATEGIES}, got '{self.strategy}'"
+            )
+
+
+@dataclass
+class ModelConfig:
+    """Base contract for every model config: orchestration fields shared across all models."""
+
+    output_dir: str = "outputs"
+    random_seed: int = 42
+
+    def validate_against_data(
+        self, data_cfg: DataConfig, eval_cfg: EvaluationConfig, summary: dict
+    ) -> list[str]:
+        """Validate model configuration against data characteristics.
+
+        Subclasses can override this to enforce model-specific constraints.
+        Returns a list of warning strings for non-fatal issues.
+        """
+        return []
+
+    def __post_init__(self):
+        """No base-level invariants; defined so subclasses can call super()."""
+
+    @classmethod
+    def from_yaml_dict(cls, raw: dict) -> ModelConfig:
+        """Build from a raw YAML mapping (model.type already stripped).
+
+        Base implementation passes the mapping straight through. Subclasses
+        with nested config objects (e.g. per-view configs) override this to
+        parse those before construction, so load_config stays model-agnostic.
+        Overriding subclasses must call check_unknown_keys themselves.
+        """
+        check_unknown_keys(cls, raw, "model:")
+        return cls(**raw)
+
+
+@dataclass
+class Config:
+    """A complete experiment configuration: shared data + model-specific knobs + holdout policy."""
+
+    data: DataConfig
+    model: ModelConfig
+    evaluation: EvaluationConfig = field(default_factory=EvaluationConfig)
+
+    def __post_init__(self):
+        # Cross-check: if the model declares per-view architecture, view sets must match data.
+        model_views = getattr(self.model, "views", None)
+        if isinstance(model_views, dict) and model_views:
+            missing = set(model_views) - set(self.data.views)
+            extra = set(self.data.views) - set(model_views)
+            if missing or extra:
+                raise ConfigError(
+                    f"model.views must match data.views — "
+                    f"missing in model: {sorted(missing)}, extra in model: {sorted(extra)}"
+                )

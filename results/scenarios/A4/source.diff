@@ -1,0 +1,62 @@
+--- a/src/mosa/models/mosa/config.py
++++ b/src/mosa/models/mosa/config.py
+@@ -56,6 +56,7 @@
+     views: dict[str, OmicViewConfig] = field(default_factory=dict)
+     joint_latent_dim: int = 64
+     fusion_method: str = "concat"
++    encoder_architecture: str = "mlp"
+     shared_hidden_layer_dims: list[int] = field(default_factory=list)
+     poe_use_shared_head: bool = (
+         True  # PoE: True = shared head, False = direct mu/logvar per view
+@@ -146,6 +147,8 @@
+                 object.__setattr__(self, name, float(val))
+ 
+         # Structural validation
++        if self.encoder_architecture not in ("mlp", "residual_mlp"):
++            raise ConfigError("encoder_architecture must be mlp or residual_mlp")
+         if self.fusion_method not in _VALID_FUSION_METHODS:
+             raise ConfigError(
+                 f"fusion_method must be one of {_VALID_FUSION_METHODS}, got '{self.fusion_method}'"
+--- a/src/mosa/models/mosa/vae/encoder.py
++++ b/src/mosa/models/mosa/vae/encoder.py
+@@ -72,3 +72,19 @@
+             x = self.view_dropout(x)
+ 
+         return self.net(x)
++
++
++class ResidualMLPEncoder(OmicEncoder):
++    """An MLP encoder with a learned input-to-embedding skip path."""
++
++    def __init__(self, input_dim, hidden_dims, latent_dim, dropout_p=0.1,
++                 view_dropout_p=0.0, use_batch_norm=True, output_activation=nn.PReLU):
++        super().__init__(input_dim, hidden_dims, latent_dim, dropout_p,
++                         view_dropout_p, use_batch_norm, output_activation)
++        self.skip = nn.Linear(input_dim, latent_dim, bias=False)
++
++    def forward(self, x: torch.Tensor) -> torch.Tensor:
++        # Apply view dropout once to both paths.
++        if self.view_dropout is not None:
++            x = self.view_dropout(x)
++        return self.net(x) + self.skip(x)
+--- a/src/mosa/models/mosa/vae/vae_module.py
++++ b/src/mosa/models/mosa/vae/vae_module.py
+@@ -12,7 +12,7 @@
+ from mosa.models.mosa.config import MOSAConfig
+ from mosa.models.mosa.vae.decoder import OmicDecoder
+ from mosa.models.mosa.vae.discriminator import Discriminator
+-from mosa.models.mosa.vae.encoder import OmicEncoder
++from mosa.models.mosa.vae.encoder import OmicEncoder, ResidualMLPEncoder
+ from mosa.models.mosa.vae.latent import BaseLatentSpace
+ from mosa.models.mosa.vae.losses import (
+     adversarial_loss,
+@@ -100,7 +100,8 @@
+         self.encoders = nn.ModuleDict()
+         self.decoders = nn.ModuleDict()
+         for name, vc in config.views.items():
+-            self.encoders[name] = OmicEncoder(
++            encoder_class = (ResidualMLPEncoder if config.encoder_architecture == "residual_mlp" else OmicEncoder)
++            self.encoders[name] = encoder_class(
+                 input_dim=view_input_dims[name],
+                 hidden_dims=vc.hidden_layer_dims,
+                 latent_dim=self.view_encoder_dims[name],

@@ -1,0 +1,15 @@
+data:
+  path: build/mofa/samples_50/data.h5mu
+  views:
+  - gexp
+  - meth
+model:
+  type: mofa
+  n_factors: 3
+  iterations: 100
+  drop_r2: null
+  random_seed: 42
+  output_dir: build/mofa/samples_50/search_outputs
+evaluation:
+  test_size: 0
+  n_folds: 2
